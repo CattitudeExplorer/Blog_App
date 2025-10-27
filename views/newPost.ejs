@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<div class="newpost-container">
+    <h1>Create a new post</h1>
+    <div class="newpost-form-frame">
+        <form action="/newPost" method="POST">
+
+            <div class="newpost-form-group">
+              <label for="name">Title:</label>
+              <input type="text" id="titleNewPost" name="titleNewPost" placeholder="Post Title" required/>
+            </div>
+
+            <div class="newpost-form-group newpost-textarea-size">
+                <label for="contentofPost">Post:</label>
+                <textarea id="contentofPost" name="contentofPost" placeholder="Write your post here..."></textarea>
+            </div>
+
+            <input type="submit" class="btn_CreatePost" value="Create Post">
+        </form>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

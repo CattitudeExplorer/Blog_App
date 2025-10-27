@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+/***********************  Header  ***********************/
+
+main {
+    position: relative;
+    min-height: calc(100vh - 160px); /* adjust 160px to header+footer height */
+    background-color: #464646;
+    padding: 100px 20px;
+}
+
+/* header nav bar */
+.top-nav-bar {
+    display: flex;
+    justify-content: space-between;  /* title left, nav right */
+    flex-wrap: wrap;  /* items will wrap if necessary */
+    align-items: center;  /* vertical centering */
+    background-color: #333;
+    padding: 10px 40px;
+}
+
+.top-nav-bar ul {
+    display: flex;
+    gap: 30px;  /* space between each link items (Home, New Post, Contact)  */
+    list-style: none;   /* remove the default bullets from list */
+}
+
+.top-nav-bar a {
+    color: antiquewhite;
+    text-decoration: none; /* Removes the underline from links */
+    font-size: 27px;
+}
+
+.top-nav-bar a:hover {
+    color: whitesmoke;
+}
+
+/* Title of the Web App */
+.main_title > a {
+    font-size: 40px;
+}
+
+/***********************  Main/Home Page  ***********************/
+
+.all-posts {
+    max-width: 60%;
+    margin-left: 400px;
+    padding: 10px 10px;
+    background-color: #464646;
+    color: #D6D9DB;
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 2px 6px 20px 8px whitesmoke,
+                2px 6px 10px 4px whitesmoke;
+}
+
+.home-post-card {
+    margin: 100px 180px;
+    padding: 22px;
+    border: 1px solid whitesmoke;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+.home-post-card a {   /* for titles of the posts */
+    font-size: 34px;
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.home-post-card a:hover {
+    color: whitesmoke;
+}
+
+.home-post-preview {   /* for content of the posts */
+    padding: 20px;
+    font-size: 26px;
+}
+
+.home-post-preview li {
+    list-style: none;   /* remove the bullets from content of the <li> elements */
+}
+
+.edit-delete-box {
+    position: absolute;
+    top: 100px;
+    right: 80px;
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    background-color: #464646;
+    color: #D6D9DB;
+    border-radius: 40px;
+    box-shadow: 2px 6px 20px 8px whitesmoke,
+                2px 6px 10px 4px whitesmoke;
+}
+
+/***********************  Every Page of Posts  ***********************/
+
+.dynamic-full-post {
+    position: relative;
+    bottom: 40px;
+    border-radius: 40px;
+    box-shadow: 2px 6px 20px 8px whitesmoke,
+                2px 6px 10px 4px whitesmoke;
+    max-width: 1200px;
+    margin: 1px 200px 10px 40px;
+    padding: 1px 50px 120px;
+}
+
+.dynamic-post-content {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    list-style-position: inside;   /* To positioning bullets within content */
+}
+
+.dynamic-post-content.user {
+    white-space: pre-wrap;   /* preserve user text line breaks */
+}
+
+.dynamic-post-content.existing {
+    white-space: normal;    /* let HTML tags decide formatting */
+}
+
+.dynamic-post-content p {
+    padding: 10px 0;
+}
+
+/* back to home Button */
+.back-to-home {
+    position: absolute;
+    left: 38%;
+    bottom: 30px;            /* distance from bottom of container */
+    color: antiquewhite;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Title post */
+.dynamic-full-post h1 {
+    margin: 20px 0 30px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+.back-to-home:hover {
+    color: #333;
+    background-color: whitesmoke;
+}
+
+.image-post {
+    position: absolute;
+    top: 60px;            
+    right: 80px;         
+    width: 500px;          
+    border-radius: 20px;
+    box-shadow: 2px 4px 12px wheat;
+}
+
+/* Delete and Edit container */
+.container-buttons {
+    position: absolute;
+    border-radius: 10px;
+    padding: 8px;
+    top: 10px;
+    right: 30px;
+}
+
+/* Delete and Edit buttons */
+.btns {
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    color: antiquewhite;
+    border: 2px solid whitesmoke;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #464646;
+    margin-right: 4px; /* adds space to the right of each button */
+}
+
+.btns:hover {
+    color: #333;
+    background-color: whitesmoke;
+}
+
+/***********************  Contact Page  ***********************/
+
+.contact-frame {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-frame h1 {
+    background-color: rgb(77, 90, 106);
+    background-image: linear-gradient(  to bottom,#333 1%, rgb(77, 90, 106) 50%,#333 100%);
+    margin: -100px -20px 0;   /* To correct the 20px padding from main, so the h1 will extend to the full width */
+    padding: 60px;
+    text-align: center;
+    font-size: 66px;
+    color: white;
+}
+
+.contact-frame p {
+    font-size: 24px;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+}
+
+.contact-form {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 24px;
+    margin: 20px auto;
+}
+
+.contact-form-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    color: white;
+}
+
+.contact-form-group input,
+.contact-form-group textarea {
+    flex: 1;
+    width: 100%;
+    padding: 8px;
+    font-size: 24px;
+}
+
+.contact-textarea-size label{
+    align-items: flex-start;
+    margin-left: -83px;
+}
+
+.contact-textarea-size textarea {
+    height: 200px;
+
+}
+
+.btn_SendFeedback {
+    padding: 10px 0;
+    border-radius: 30px;
+    border: none;         /* remove default border */
+    font-size: 24px;
+    font-weight: bold;
+    color: #4f4e4e;
+    margin-left: 80px;
+}
+
+.btn_SendFeedback:hover{
+    color: #a19a9a;
+    box-shadow: 2px 2px 8px wheat;
+}
+
+/***********************  Thank you page  ***********************/
+.container-thankyou h1{
+    background-color: rgb(77, 90, 106);
+    background-image: linear-gradient(  to bottom,#333 1%, rgb(77, 90, 106) 50%,#333 100%);
+    margin: -100px -20px 0;   /* To correct the 20px padding from main, so the h1 will extend to the full width */
+    padding: 60px;
+    text-align: center;
+    font-size: 66px;
+    color: white;
+}
+
+.content-thankyou {
+    width: 400px;
+    height: 240px;
+    background:  rgb(77, 90, 106);
+    border-radius: 20px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    translate: (-50%, -50%);   /* To center everything */
+    text-align: center;
+    padding: 0 30px 30px;
+    font-size: 30px;
+    color: white;
+    box-shadow: 2px 2px 12px wheat;
+}
+
+.content-thankyou img {
+    width: 100px;
+    margin-top: -14%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px wheat;
+}
+
+.content-thankyou p {
+    margin: 20px 0;
+}
+
+.btn-thankyou-goHome {
+    text-decoration: none;
+    background-color: rgb(245, 235, 217);
+    border-radius: 20%;
+    font-size: 20px;
+    border: 2px solid white;
+    color: #333;
+    padding: 8px;
+}
+
+.btn-thankyou-goHome:hover{
+    background-color: white;
+    color: rgb(2, 2, 150);
+    box-shadow: 2px 2px 8px wheat;
+}
+
+/***********************  New Post Page  ***********************/
+
+.newpost-container h1 {
+    background-color: rgb(77, 90, 106);
+    background-image: linear-gradient(  to bottom,#333 1%, rgb(77, 90, 106) 50%,#333 100%);
+    margin: -100px -20px 0;   /* To correct the 20px padding from main, so the h1 will extend to the full width */
+    padding: 60px;
+    text-align: center;
+    font-size: 66px;
+    color: white;
+}
+
+.newpost-form-frame form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 24px;
+    margin: 40px auto;
+}
+
+.newpost-form-group {
+    display: flex;
+    align-items: center;
+    margin-left: -40px;  /* To shift the title + post more to the left */
+    gap: 20px;
+    font-size: 24px;
+    color: white;
+    white-space: pre-wrap;
+}
+
+.newpost-form-group label {
+    width: 40px;     /* Keep labels with a fixed width so input and textarea align perfectly */
+}
+
+.newpost-form-group input,
+.newpost-form-group textarea {
+    width: 100%;
+    flex-basis: 40ch;
+    padding: 8px;
+    font-size: 24px;
+}
+
+.newpost-textarea-size textarea {
+    height: 400px;
+}
+
+.newpost-textarea-size label {
+    margin-bottom: 360px; /* visually align the label with the first line of textarea text */
+}
+
+.btn_CreatePost {
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4f4e4e;
+    display: block;
+    margin: 30px auto;
+    border: none;         /* remove default border */
+}
+
+.btn_CreatePost:hover{
+    color: #a19a9a;
+    box-shadow: 2px 2px 8px wheat;
+}
+
+/***********************  Footer  ***********************/
+
+footer {
+     background-color: #333;
+     color: antiquewhite;
+}
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    color: antiquewhite;
+    gap: 30px;
+    font-size: 20px;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.footer-menu a {
+    color:antiquewhite;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    color: whitesmoke;
+}
+
+.copyright {
+    padding: 20px 0;
+    text-align: center;
+}
