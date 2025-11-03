@@ -96,6 +96,10 @@ app.get("/contact", (req, res) => {
     res.render("contact.ejs");
 });
 
+app.get("/about", (req, res) => {
+    res.render("about.ejs");
+})
+
 app.get("/editPost/:id", (req, res) => {
     const editID = parseInt(req.params.id);
     const postToEdit = newPosts.find(p => p.id === editID);

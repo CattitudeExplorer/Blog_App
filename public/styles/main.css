@@ -72,6 +72,12 @@ main {
     text-decoration: none;
 }
 
+.home-post-card:hover {
+    transform: scale(1.04);
+    transition: 0.3s;
+    box-shadow: 0 0 20px #fff;
+}
+
 .home-post-card a:hover {
     color: whitesmoke;
 }
@@ -198,6 +204,56 @@ main {
     background-color: whitesmoke;
 }
 
+/***********************  About Page  ***********************/
+
+.container-about h1{
+    background-color: rgb(77, 90, 106);
+    background-image: linear-gradient(  to bottom,#333 1%, rgb(77, 90, 106) 50%,#333 100%);
+    margin: -100px -20px 0;   /* To correct the 20px padding from main, so the h1 will extend to the full width */
+    padding: 60px;
+    text-align: center;
+    font-size: 66px;
+    color: white;
+}
+.about {
+    background-color: #ffffff10;
+    backdrop-filter: blur(18px);   /* glass effect */
+    margin: 100px auto;
+    position: relative;  
+    padding: 40px 50px;
+    border-radius: 15px;
+    max-width: 600px;             
+    text-align: center;          
+    box-shadow: 2px 6px 20px 8px whitesmoke,
+                2px 6px 10px 4px whitesmoke;
+    color: white;
+    font-family: "Arvo", cursive;
+    font-size: 24px;
+}
+
+.about p {
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.about_back_home_btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: antiquewhite;
+    border: 2px solid whitesmoke;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.about_back_home_btn:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+    color: #333;
+    background-color: whitesmoke;
+}
+
 /***********************  Contact Page  ***********************/
 
 .contact-frame {
@@ -226,6 +282,8 @@ main {
 .contact-form {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-left: -20px;      /* To correct the padding from main */
 }
 
 .contact-form form {
@@ -259,22 +317,25 @@ main {
 
 .contact-textarea-size textarea {
     height: 200px;
-
 }
 
 .btn_SendFeedback {
+    color: antiquewhite;
+    border: 2px solid whitesmoke;
+    text-decoration: none;
     padding: 10px 0;
     border-radius: 30px;
-    border: none;         /* remove default border */
     font-size: 24px;
     font-weight: bold;
-    color: #4f4e4e;
     margin-left: 80px;
+    background-color: transparent;
 }
 
 .btn_SendFeedback:hover{
-    color: #a19a9a;
-    box-shadow: 2px 2px 8px wheat;
+    transform: scale(1.03);
+    transition: 0.3s;
+    color: #333;
+    background-color: whitesmoke;
 }
 
 /***********************  Thank you page  ***********************/
