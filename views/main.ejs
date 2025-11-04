@@ -3,7 +3,7 @@
 <div class="all-posts">
     <% posts.forEach(countPost => { %>
         <div class="home-post-card">
-            <h2><a href="/post/ <%= countPost.id %>"><%= countPost.title %> </a></h2>
+            <h2><a href="/post/<%= countPost.id %>"><%= countPost.title %> </a></h2>
             <div class="home-post-preview">
                 <p> <%- countPost.content.substring(0, 280) %>... </p>   <!-- substring is used to show just 280 characters -->
             </div>
