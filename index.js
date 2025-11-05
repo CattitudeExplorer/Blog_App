@@ -104,17 +104,17 @@ app.get("/editPost/:id", (req, res) => {
     const editID = parseInt(req.params.id);
     const postToEdit = newPosts.find(p => p.id === editID);
     
-    if(postToEdit === -1) 
+    if(!postToEdit) 
       return res.status(404).send("Post not found!");
     
     
     const cleanedPost = {
       id: postToEdit.id,
       title: postToEdit.title,
-      content: postToEdit.content,
+      content: postToEdit.content.replace(/<[^>]+>/g, ""),   // remove all HTML tags from the content before sending to the form
       image: postToEdit.image,
-      isUserPresent: postToEdit.isUserPresent,
-      content: postToEdit.content.replace(/<[^>]+>/g, "")   // remove all HTML tags from the content before sending to the form
+      isUserPresent: postToEdit.isUserPresent
+      
     };
     res.render("editPost.ejs", {postToEdit: cleanedPost});
 });
@@ -122,11 +122,9 @@ app.get("/editPost/:id", (req, res) => {
 /* The existing posts */
 app.get("/post/:id", (req, res) => {
   const id = parseInt(req.params.id);   // get the id from URL by converting the string into an int
-  const postId = newPosts.find(function(currentPost) {
-    return currentPost.id === id;               // find post by current id
-  });
+  const postId = newPosts.find(currentPost => currentPost.id === id);
 
-  if(postId === -1){
+  if(!postId){
     return res.status(404).send("Post was not found!");
   }
   res.render("post.ejs", {postId});
