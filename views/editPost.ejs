@@ -1,21 +1,23 @@
 <%- include("partials/header.ejs") %>
 
 <div class="dynamic-full-post">
-    <h1>Edit</h1>
+    <h1> <%= heading %> </h1>
     <div class="newpost-form-frame">
-        <form action="/editPost/<%= postToEdit.id %>?_method=PUT" method = "POST">
+        <% if (locals.post) { %>
+        <form method="post" action="/posts/<%= post.id %>">
             <div class="newpost-form-group">
               <label for="titleNewPost">Title:</label>
-              <input type="text" id="titleNewPost" name="titleNewPost" value ="<%= postToEdit.title %>" required/>
+              <input type="text" id="titleNewPost" name="titleNewPost" value ="<%= post.title %>" required/>
             </div>
 
             <div class="newpost-form-group newpost-textarea-size">
                 <label for="contentofPost">Post:</label>
-                <textarea id="contentofPost" name="contentofPost"><%= postToEdit.content %></textarea>
+                <textarea id="contentofPost" name="contentofPost"><%= post.content %></textarea>
             </div>
 
             <input type="submit" class="btn_CreatePost" value="Update Post">
         </form>
+        <% } %>
     </div>
 </div>
 <script src="/js/post-actions.js"></script>

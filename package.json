@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.13.4",
     "body-parser": "^2.2.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
@@ -10,10 +11,19 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "SmartArt Blog\r A simple and elegant blog application built with Node.js, Express, and EJS, allowing users to create, edit, delete, and \r view blog posts. It also includes a contact form and dynamic rendering for posts with and without HTML content.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CattitudeExplorer/Blog_App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CattitudeExplorer/Blog_App/issues"
+  },
+  "homepage": "https://github.com/CattitudeExplorer/Blog_App#readme"
 }
