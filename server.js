@@ -24,7 +24,7 @@ app.get("/", async (req, res) => {
 
 // Route to render the nwe page
 app.get("/newPost", (req, res) => {
-    res.render("newPost.ejs", { heading: "New Post", submit: "Create Post" });
+    res.render("editAndCreatePosts.ejs", { heading: "New Post", submit: "Create Post" });
 });
 
 // Route to render the edit page
@@ -34,7 +34,7 @@ app.get("/posts/:id", async (req, res) => {
         const response = await axios.get(`${API_URL}/posts/${id}`);
         console.log(response.data);
 
-        res.render("editPost.ejs", { heading: "Edit Post", post: response.data});
+        res.render("editAndCreatePosts.ejs", { heading: "Edit Post", submit: "Update Post", post: response.data});
 
     } catch(error) {
         res.status(500).json({ message: "Error by fetching post"});

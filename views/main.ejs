@@ -3,11 +3,12 @@
 <div class="all-posts">
     <% posts.forEach(countPost => { %>
        <div class="home-post-card">
-            <h2><a href="/posts/<%= countPost.id %>"><%= countPost.title %> </a></h2>
+            <h2><%= countPost.title %></h2>
             <div class="home-post-preview"> 
                 <p> <%- countPost.content.substring(0, 280) %>... </p>  <!-- substring is used to show just 280 characters -->
           </div> 
-        </div>     
+          <a class = "editButton" href = "/posts/<%= countPost.id %>">Edit</a>
+        </div>             
     <% }); %>
 </div>
 <%- include("partials/footer.ejs") %>

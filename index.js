@@ -86,14 +86,6 @@ app.get("/posts/:id", (req, res) => {
   if(!findID)
     return res.sendStatus(404).json({error: `Post with id: ${id} was not found`});
 
-  const cleanedPost = {
-    id: findID.id,
-    title: findID.title,
-    content: findID.content,
-    image: findID.image,
-    isUserPresent: findID.isUserPresent
-  };
-
   res.json(findID);
    
 });
