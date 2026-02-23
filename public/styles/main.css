@@ -4,7 +4,7 @@
     box-sizing: border-box;
     border: none;
     font-family:'Times New Roman', Times, serif;
-    line-height: 1.2;
+    line-height: 1.4;
 }
 
 html {
@@ -17,7 +17,9 @@ main {
     position: relative;
     min-height: calc(100vh - 10rem); /* adjust 10rem to header+footer height */
     background-color: #464646;
-    padding: 6.25rem 1.25rem;
+    padding: 0 0 6.25rem 0;     
+    display: flex;
+    flex-direction: column;
 }
 
 /* header nav bar */
@@ -44,7 +46,7 @@ main {
 }
 
 .top-nav-bar a:hover {
-    color: #4c95da;;
+    color: #9596ec;;
 }
 
 /* Title of the Web App */
@@ -56,16 +58,17 @@ main {
 
 .all-posts {
     display: flex;
-    align-items: center;      /* vertical */
+    align-items: center;      
     flex-flow: column wrap;
     gap: 3rem;
-    margin: 0 auto;
-    max-width: 75rem;
+    margin: 5rem auto 0;
+    max-width: 80rem;
+    width: 60%;
     padding: 4rem 1.25rem;
     color: #D6D9DB;
     text-align: center;
     border-radius: 2.5rem;
-    box-shadow: 0 0 5rem rgb(235, 235, 210);
+    box-shadow: 0 0 3rem rgb(235, 235, 210);
 }
 
 .home-post-card {
@@ -82,6 +85,11 @@ main {
     box-shadow: 0 0 1rem rgb(235, 235, 210);
 }
 
+.postTitle {
+    text-decoration: none;
+    color: #D6D9DB;
+}
+
 .home-post-preview {   /* for content of the posts */
     padding: 1.25rem;
 }
@@ -94,10 +102,12 @@ h2 {
     font-size: 1.8rem;
 }
 
-.editButton {
+.editButton, .viewButton, .back-to-home {
+    max-width: 10rem;
     text-decoration: none;
     background-color: #f5f5f5;
-    color: #4f4e4e;
+    margin: 0.4rem;
+    color: #464646;
     padding: 0.6rem;
     font-size: 1.1em;
     font-weight: bold;
@@ -106,15 +116,15 @@ h2 {
     transition: background-color 0.25s ease;
 }
 
-.editButton:hover {
+.editButton:hover, .viewButton:hover, .back-to-home:hover {
     background-color: #4c95da;
     color: whitesmoke;
 }
 
-/***********************  Edit And Create the New Added Posts ***********************/
+/***********************  Edit, Create and View Posts ***********************/
 
-/* For title "Edit Post"  */
-h1 {
+/* For titles "Edit Post" and "New Post"  */
+.titleEditCreate{
     color: whitesmoke;
     font-size: 3.4rem;
     text-align: center;
@@ -123,8 +133,8 @@ h1 {
 .dynamic-full-post {
     display: flex;
     flex-direction: column;   /* Title above the content */
-    justify-content: center;  /* Center horizontally the content */
-    margin: 0 auto;           /* Center div box */
+    justify-content: center;  /* Center horizontally the content inside the layout */
+    margin: 0 auto;           /* Center layout */
     padding: 2rem 1.25rem;
     max-width: 75rem;
     gap: 0.8rem;
@@ -133,7 +143,7 @@ h1 {
     max-width: 75rem;
 }
 
-.newpost-form-frame {
+.post-frame {
     display: flex;
     flex-direction: column; 
     width: 100%;           /* Takes up the available width up to max-width */
@@ -141,13 +151,14 @@ h1 {
     margin: 1rem auto;
 }
 
-.newpost-form-frame form {
+/* Vertical stacking of form */
+.post-frame form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.newpost-form-group {
+.post-group {
     display: flex;
     align-items: center;
     gap: 1.25rem;
@@ -156,21 +167,22 @@ h1 {
     white-space: pre-wrap;  /* Allows text wrapping */
 }
 
-.newpost-form-group label {
+.post-group label {
     width: 4rem;     /* Keep labels with a fixed width so input and textarea align perfectly */
 }
 
-.newpost-form-group input, textarea {
+.post-group input, textarea {
     width: 100%;
     padding: 0.5rem;
     font-size: 1.2rem;
     border-radius: 1rem;
 }
 
-.newpost-textarea-size textarea {
+.post-textarea-size textarea {
     height: 25rem;
 }
 
+/* Update and Create buttons  */
 input[type="submit"] {
     width: 10rem;
     background-color: #f5f5f5;
@@ -191,12 +203,249 @@ input[type="submit"]:hover {
     color: whitesmoke;
 }
 
+/* Flex layout container for post content that places the text on 
+   the left and image on the right in View page */
+.posts-body {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Title of posts in View Page */
+.titlePostView {
+    color: whitesmoke;
+    font-size: 2.4rem;
+    margin-left: 2rem;
+}
+
+/* Content of View Page */
+.dynamic-post-content {
+    flex: 1;                  /* Fills all available remaining space in the container */
+    font-size: 20px;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    color: white;
+    white-space: pre-line;    /* Respects \n (newline), but ignores extra horizontal whitespace and allows wrapping */
+} 
+
+/* Images in View Page  */
+.image-post {
+    width: 100%;       /* Fills the container on small screens (mobile) */
+    max-width: 28rem;  /* Limits the size so it doesn't go too huge on desktop */
+    height: auto;
+    margin-right: 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 2px 4px 12px wheat;
+}
+
+/* Button in View Page (above is created) */
+.back-to-home {
+    margin-left: 2rem;
+}
+
+/* Delete and Edit buttons */
+.container-buttons {
+    position: absolute;
+    border-radius: 10px;
+    padding: 8px;
+    top: 10px;
+    right: 30px;
+}
+
+/***********************  About Page  ***********************/
+
+.container-about h1,        /* About Page*/
+.contact-frame h1,          /* Contact Page */
+.container-thankyou h1 {    /* Thank You page*/
+    width: 100%;
+    margin: 0;                /* No more negative numbers! */
+    padding: 4rem 1rem;       /* Sufficient height for the header */
+    background-color: rgb(77, 90, 106);
+    background-image: linear-gradient(to bottom, #333 1%, rgb(77, 90, 106) 50%, #333 100%);
+    text-align: center;
+    color: white;
+    font-size: 4.1rem;        /* Or your preferred size */
+}
+
+.about {
+    background-color: #ffffff10;
+    backdrop-filter: blur(18px);   /* glass effect */
+    margin: 100px auto;
+    position: relative;  
+    padding: 40px 50px;
+    border-radius: 15px;
+    max-width: 600px;            
+    text-align: center;          
+    box-shadow: 2px 6px 20px 8px whitesmoke,
+                2px 6px 10px 4px whitesmoke;
+    color: white;
+    font-family: "Arvo", cursive;
+    font-size: 24px;
+}
+
+
+.about p {
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+
+.about_back_home_btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: antiquewhite;
+    border: 2px solid whitesmoke;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+.about_back_home_btn:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+    color: #333;
+    background-color: whitesmoke;
+}
+
+/***********************  Contact Page  ***********************/
+
+.contact-frame p {
+    font-size: 24px;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+}
+
+
+.contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -20px;      /* To correct the padding from main */
+}
+
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 24px;
+    margin: 20px auto;
+}
+
+
+.contact-form-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    color: white;
+}
+
+
+.contact-form-group input,
+.contact-form-group textarea {
+    flex: 1;
+    width: 100%;
+    padding: 8px;
+    font-size: 24px;
+}
+
+
+.contact-textarea-size label{
+    align-items: flex-start;
+    margin-left: -83px;
+}
+
+
+.contact-textarea-size textarea {
+    height: 200px;
+}
+
+
+.btn_SendFeedback {
+    color: antiquewhite;
+    border: 2px solid whitesmoke;
+    text-decoration: none;
+    padding: 10px 0;
+    border-radius: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 80px;
+    background-color: transparent;
+}
+
+
+.btn_SendFeedback:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+    color: #333;
+    background-color: whitesmoke;
+}
+
+
+
+/***********************  Thank you page  ***********************/
+
+.content-thankyou {
+    width: 400px;
+    height: 240px;
+    background:  rgb(77, 90, 106);
+    border-radius: 20px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    translate: (-50%, -50%);    /*To center everything */
+    text-align: center;
+    padding: 0 30px 30px;
+    font-size: 30px;
+    color: white;
+    box-shadow: 2px 2px 12px wheat;
+}
+
+
+.content-thankyou img {
+    width: 100px;
+    margin-top: -14%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px wheat;
+}
+
+
+.content-thankyou p {
+    margin: 20px 0;
+}
+
+
+.btn-thankyou-goHome {
+    text-decoration: none;
+    background-color: rgb(245, 235, 217);
+    border-radius: 20%;
+    font-size: 20px;
+    border: 2px solid white;
+    color: #333;
+    padding: 8px;
+}
+
+
+.btn-thankyou-goHome:hover{
+    background-color: white;
+    color: rgb(2, 2, 150);
+    box-shadow: 2px 2px 8px wheat;
+}
+
+
+
 /***********************  Footer  ***********************/
 
 footer {
      background-color: #333;
      color: antiquewhite;
 }
+
 .footer-menu {
     display: flex;
     justify-content: center;
@@ -213,7 +462,7 @@ footer {
 }
 
 .footer-menu a:hover {
-    color: whitesmoke;
+    color: #9596ec;;
 }
 
 .copyright {
@@ -224,10 +473,22 @@ footer {
 
 
 /***********************  MEDIA QUERIES  ***********************/
-
+/* For phones and IPads */
 @media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
+
+    html {
+        font-size: 12px;
+    }
+
+    .image-post {
+        max-width: 18rem;     /* Smaller image on phones and IPads */
+    }
+
+    .all-posts {
+        width: 80%;
+    }
+
+    
+    
   
 }

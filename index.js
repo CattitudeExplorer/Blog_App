@@ -29,7 +29,6 @@ let newPosts = [
                   At the end add 1 cup/236ml of boiling water. 
                   The cake will be in the oven at 180°C for 35 minutes.`,
          image: "/images/chocolate_cake.jpg",
-         isUserPresent: false
     },
     {
         id: 2,
@@ -62,9 +61,10 @@ let newPosts = [
                     Prepare the strawberry jelly: Soak gelatin in cold water. Cook strawberries + sugar, blend, stir in gelatin, pour over cheesecake, refrigerate 2 hours.
                   `,
            image: "/images/cheesecake.jpg",
-           isUserPresent: false
     }
 ];
+
+let lastID = 2;
 
 // Middleware
 //app.use(methodOverride("_method"));
@@ -73,7 +73,6 @@ app.use(bodyParser.json());
 
 // Get all posts 
 app.get("/posts", (req, res) => {
-  //res.render("main.ejs", {posts: newPosts});
   console.log("This is the page where you see all posts!");
   res.json(newPosts);      
 });
@@ -83,13 +82,45 @@ app.get("/posts/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const findID = newPosts.find((post) => post.id === id);
   console.log("This is the edit page!");
+
   if(!findID)
-    return res.sendStatus(404).json({error: `Post with id: ${id} was not found`});
+    return res.status(404).json({error: `Post with id: ${id} was not found`});
 
   res.json(findID);
    
 });
 
+// POST a new post
+app.post("/posts", (req, res) => {
+  const newID = lastID += 1;
+  const post = {
+    id: newID,
+    title: req.body.title,
+    content: req.body.content,
+  };
+
+  newPosts.push(post);
+  console.log("API BODY:", req.body);
+  res.status(201).json(post);
+});
+
+
+// Update a post
+app.put("/posts/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const post = newPosts.find((p) => p.id === id);
+  
+  if(!post){
+    return res.status(404).json({ error: "Post not found"});
+  }
+
+  if(req.body.title)
+    post.title = req.body.title;
+  if(req.body.content)
+    post.content = req.body.content;
+
+  res.json(post);
+});
 
 app.listen(port, () => {
     console.log(`API is running at http://localhost:${port}`);

@@ -1,0 +1,45 @@
+<%- include("partials/header.ejs") %>
+
+<div class="dynamic-full-post">
+    <% if(mode === "view") { %>
+        <h1 class="titlePostView"> <%= post.title %> </h1>
+
+        <div class="posts-body">
+            <div class="dynamic-post-content">
+                <%= post.content %>
+            </div>
+
+            <% if(post.image) { %>
+                    <img src="<%= post.image %>" alt="<%= post.title %>" class="image-post">
+            <% } %>
+        </div>
+        <a href="/" class="back-to-home">Back at all posts</a>
+        <div class="container-buttons">
+            <button type="button" class="btns" data-id="<%= post.id %>">Delete</button>
+            <button type="button" class="btns" data-id="<%= post.id %>">Edit</button>
+        </div>
+
+    <% } else { %>
+    <h1 class="titleEditCreate"> <%= mode === "create" ? "New Post" : "Edit Post" %> </h1>
+    <div class="post-frame">
+        <form method="POST" action=" <%= mode === 'edit' ? '/posts/'+ post.id + '/edit' : '/posts' %>">
+            <div class="post-group">
+              <label>Title:</label>
+              <input type="text" id="title" name="title" 
+                     value ="<%= mode === 'edit' ? post.title : '' %>" 
+                     placeholder = "<%= mode === 'edit' ? '' : 'Post Title' %>"
+                     required/>
+            </div>
+
+            <div class="post-group post-textarea-size">
+                <label>Post:</label>
+                <textarea id="content" name="content" placeholder="<%= mode==='edit' ? '' : 'Write your post here...' %>"><%= mode === 'edit' ? post.content : '' %></textarea>
+            </div>
+
+            <input type="submit" class="btn_CreatePost" value="<%= mode === 'edit' ? 'Update Post' : 'Create Post' %>">
+        </form>
+    </div>
+    <% } %>
+</div>
+<%- include("partials/footer.ejs") %>
+

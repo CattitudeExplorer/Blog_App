@@ -22,24 +22,84 @@ app.get("/", async (req, res) => {
     }
 });
 
-// Route to render the nwe page
+// Route to render the new page
 app.get("/newPost", (req, res) => {
-    res.render("editAndCreatePosts.ejs", { heading: "New Post", submit: "Create Post" });
+    res.render("post.ejs", { mode: "create"});
 });
 
 // Route to render the edit page
-app.get("/posts/:id", async (req, res) => {
+app.get("/posts/:id/edit", async (req, res) => {
     try {
         const id = req.params.id;
         const response = await axios.get(`${API_URL}/posts/${id}`);
-        console.log(response.data);
-
-        res.render("editAndCreatePosts.ejs", { heading: "Edit Post", submit: "Update Post", post: response.data});
+        res.render("post.ejs", {
+            id: id,
+            mode: "edit", 
+            post: response.data
+        });
+        console.log("Edit:", response.data);
 
     } catch(error) {
         res.status(500).json({ message: "Error by fetching post"});
     }
 });
+
+// Rout to render the view page
+app.get("/posts/:id/view", async(req, res) => {
+    try {
+        const id = req.params.id;
+        const response = await axios.get(`${API_URL}/posts/${id}`);
+
+        res.render("post.ejs", {
+            id: id,
+            mode: "view",
+            post: response.data
+        });
+        console.log("View:", response.data);
+
+    } catch (error) {
+        res.status(500).json({ message: "Error by fetching post"});
+    }
+});
+
+
+// Route to render the about page
+app.get("/about", (req, res) =>{
+    res.render("about.ejs");
+});
+
+// Route to render the about page
+app.get("/contact", (req, res) =>{
+    res.render("contact.ejs");
+});
+
+// Create a new post
+app.post("/posts", async (req, res) => {
+    try{
+        const response = await axios.post(`${API_URL}/posts`, req.body);
+        console.log(response.data);
+        console.log("BODY:", req.body);
+        res.redirect("/");
+    } catch(error){
+        res.status(500).json({ message: "Error creating post"});
+    }
+});
+
+// Update a post 
+app.post("/posts/:id/edit", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const response = await axios.put(`${API_URL}/posts/${id}`, req.body);
+        
+        console.log(response.data);
+        console.log("Update Post: ", req.body);
+        res.redirect("/");
+        
+    } catch (error) {
+        res.status(500).json({ message: "Error updating post"});
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Backend server is running on http://localhost:${port}`);
