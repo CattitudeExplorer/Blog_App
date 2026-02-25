@@ -122,6 +122,16 @@ app.put("/posts/:id", (req, res) => {
   res.json(post);
 });
 
+// Delete a specific post by providing the past id.
+app.delete("/posts/:id", (req, res) => {
+  const postID = newPosts.findIndex((p) => p.id === parseInt(req.params.id));
+  if(postID === -1)
+      return res.status(404).json({ message: "Post not found"});
+
+  newPosts.splice(postID, 1);
+  res.json({ message: "Post deleted!"});
+});
+
 app.listen(port, () => {
     console.log(`API is running at http://localhost:${port}`);
 });

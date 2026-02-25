@@ -1,13 +1,12 @@
 <%- include("partials/header.ejs") %>
 
-<div class="container-thankyou">
+<div class="thankyou-title">
     <h1> Thank you, <%= contactInfo.name %>!</h1>
-    <div class="content-thankyou">
-        <img src="images/tick.png" alt="tick symbol">
-        <p>Your message has been received.</p>
-        <a href="/" class="btn-thankyou-goHome">OK</a>
-    </div>
-   
+</div>
+<div class="content-thankyou">
+    <img src="images/tick.png" alt="tick symbol">
+    <p>Your message has been received.</p>
+    <a href="/" class="btn-thankyou-goHome">OK</a>
 </div>
 
 <%- include("partials/footer.ejs") %>

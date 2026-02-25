@@ -14,11 +14,6 @@
             <% } %>
         </div>
         <a href="/" class="back-to-home">Back at all posts</a>
-        <div class="container-buttons">
-            <button type="button" class="btns" data-id="<%= post.id %>">Delete</button>
-            <button type="button" class="btns" data-id="<%= post.id %>">Edit</button>
-        </div>
-
     <% } else { %>
     <h1 class="titleEditCreate"> <%= mode === "create" ? "New Post" : "Edit Post" %> </h1>
     <div class="post-frame">

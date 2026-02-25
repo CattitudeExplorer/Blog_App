@@ -1,27 +1,25 @@
 <%- include("partials/header.ejs") %>
 
-<div class="contact-frame">
+<div class="contact-title">
     <h1>Contact</h1>
-    <p>Do you have any questions or suggestions?</p>
-    <p>I would love to hear from you and try to read and reply to all comments left here on the blog!  </p>
-    <div class="contact-form">
-        <form action="/contact" method="POST">
-            <div class="contact-form-group">
-              <label for="name">Name:</label>
-              <input type="text" name="name" id="name" placeholder="Name" required />    <!-- name="name" is used in thankyou.ejs to catch it -->
-            </div>
-
-            <div class="contact-form-group">
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" placeholder="Email" />
-            </div>
-
-            <div class="contact-form-group contact-textarea-size">
-                <label for="comment">Your comment: </label>
-                <textarea id="comment" name="comment" placeholder = "Write a comment here..."></textarea>
-            </div>
-            <input type="Submit" class="btn_SendFeedback" value="Send">
-        </form>
-    </div>
+</div>
+<p class="text">Do you have any questions or suggestions?</p>
+<p class="text">I would love to hear from you and try to read and reply to <br> all comments left here on the blog!  </p>
+<div class="contact-form">
+    <form action="/contact" method="POST">
+        <div class="contact-form-group">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" placeholder="Name" required />    <!-- name="name" is used in thankyou.ejs to catch it -->
+        </div>
+        <div class="contact-form-group">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="Email" />
+        </div>
+        <div class="contact-form-group contact-textarea-size">
+            <label for="comment">Your comment: </label>
+            <textarea id="comment" name="comment" placeholder = "Write a comment here..."></textarea>
+        </div>
+        <input type="Submit" class="btn_SendFeedback" value="Send">
+    </form>
 </div>
 <%- include("partials/footer.ejs") %>

@@ -62,7 +62,6 @@ app.get("/posts/:id/view", async(req, res) => {
     }
 });
 
-
 // Route to render the about page
 app.get("/about", (req, res) =>{
     res.render("about.ejs");
@@ -92,7 +91,6 @@ app.post("/posts/:id/edit", async (req, res) => {
         const response = await axios.put(`${API_URL}/posts/${id}`, req.body);
         
         console.log(response.data);
-        console.log("Update Post: ", req.body);
         res.redirect("/");
         
     } catch (error) {
@@ -100,6 +98,15 @@ app.post("/posts/:id/edit", async (req, res) => {
     }
 });
 
+// Delete a post
+app.get("/posts/:id/delete", async (req, res) => {
+    try {
+        await axios.delete(`${API_URL}/posts/${req.params.id}`);
+        res.redirect("/");
+    } catch (error) {
+        res.status(500).json({ message: "Error deleting post" });
+    }
+});
 
 app.listen(port, () => {
     console.log(`Backend server is running on http://localhost:${port}`);
