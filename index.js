@@ -122,6 +122,20 @@ app.put("/posts/:id", (req, res) => {
   res.json(post);
 });
 
+// Add a new user as contact
+app.post("/posts/contact", (req, res) => {
+  const contactInfo = {
+    name: req.body.name,
+    email: req.body.email,
+    commentSection: req.body.comment
+  };
+  contactComment.push(contactInfo);  
+  console.log("API Contact:", req.body);
+  
+  res.status(201).json(contactInfo);
+});
+
+
 // Delete a specific post by providing the past id.
 app.delete("/posts/:id", (req, res) => {
   const postID = newPosts.findIndex((p) => p.id === parseInt(req.params.id));

@@ -21,6 +21,8 @@ body {
 main {
   background-color: #464646;
   flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 /* header nav bar */
@@ -103,7 +105,7 @@ h2 {
 }
 
 .editButton, .viewButton,
-.deleteButton, .btn_SendFeedback {
+.deleteButton {
   max-width: 10rem;
   text-decoration: none;
   margin: 0.4rem;
@@ -117,7 +119,7 @@ h2 {
   background-color: #f5f5f5;
 }
 .editButton:hover, .viewButton:hover,
-.deleteButton:hover, .btn_SendFeedback:hover {
+.deleteButton:hover {
   background-color: #4c95da;
   color: whitesmoke;
 }
@@ -240,7 +242,7 @@ input[type=submit]:hover {
   box-shadow: 2px 4px 12px wheat;
 }
 
-/* Button in View Page */
+/* Button in View, Contact and About Pages */
 .back-to-home {
   max-width: 10rem;
   text-decoration: none;
@@ -277,45 +279,27 @@ input[type=submit]:hover {
 
 .about {
   background-color: rgba(255, 255, 255, 0.062745098);
-  backdrop-filter: blur(18px); /* glass effect */
-  margin: 100px auto;
+  backdrop-filter: blur(1.1rem); /* glass effect */
+  margin: 6.25rem auto;
   position: relative;
-  padding: 40px 50px;
-  border-radius: 15px;
-  max-width: 600px;
+  padding: 2.5rem 3.1rem;
+  border-radius: 1rem;
+  max-width: 38rem;
   text-align: center;
   box-shadow: 2px 6px 20px 8px whitesmoke, 2px 6px 10px 4px whitesmoke;
   color: white;
   font-family: "Arvo", cursive;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
-.text {
+.text_about {
   line-height: 1.6;
-  margin: 10px 0;
-}
-
-.about_back_home_btn {
-  display: inline-block;
-  margin-top: 20px;
-  color: antiquewhite;
-  border: 2px solid whitesmoke;
-  text-decoration: none;
-  padding: 10px 25px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.about_back_home_btn:hover {
-  transform: scale(1.03);
-  transition: 0.3s;
-  color: #333;
-  background-color: whitesmoke;
+  margin-bottom: 2rem;
 }
 
 /***********************  Contact Page  ***********************/
-.text {
-  font-size: 24px;
+.text_contact {
+  font-size: 1.5rem;
   padding: 10px 0;
   text-align: center;
   color: white;
@@ -325,83 +309,86 @@ input[type=submit]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  width: 100%;
+  max-width: 50rem;
 }
-
 .contact-form form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  gap: 24px;
-  margin: 20px auto;
+  width: 100%;
+  max-width: 30rem;
+  gap: 1.5rem;
+  margin: 1.25rem 6rem 1.25rem 0; /* To align in the middle  */
 }
-
-.contact-form-group {
+.contact-form form .contact-form-group {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 24px;
+  gap: 1rem;
+}
+.contact-form form .contact-form-group label {
+  flex: 0 0 7rem;
+  text-align: right;
   color: white;
 }
-
-.contact-form-group input,
-.contact-form-group textarea {
+.contact-form form .contact-form-group input, .contact-form form .contact-form-group textarea {
   flex: 1;
   width: 100%;
-  padding: 8px;
-  font-size: 24px;
+  padding: 0.6rem;
+  font-size: 1.5rem;
+  border-radius: 0.6rem;
 }
-
-.contact-textarea-size label {
-  align-items: flex-start;
-  margin-left: -83px;
+.contact-form form .contact-form-group textarea {
+  height: 12.5rem;
 }
-
-.contact-textarea-size textarea {
-  height: 200px;
+.contact-form form .btn_SendFeedback {
+  max-width: 10rem;
+  text-decoration: none;
+  margin: 0.4rem;
+  padding: 0.6rem;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 0.37rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #464646;
+  background-color: #f5f5f5;
+}
+.contact-form form .btn_SendFeedback:hover {
+  background-color: #4c95da;
+  color: whitesmoke;
+}
+.contact-form form .btn_SendFeedback {
+  margin-left: 14rem; /* to align in the middle of input and textarea */
 }
 
 /***********************  Thank you page  ***********************/
 .content-thankyou {
-  width: 400px;
-  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 4rem auto 0;
+  width: 26rem;
+  height: 15rem;
   background: rgb(77, 90, 106);
-  border-radius: 20px;
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  transform: translate(-50%, -50%); /* To center everything */
+  border-radius: 1.25rem;
   text-align: center;
-  padding: 0 30px 30px;
-  font-size: 30px;
+  font-size: 1.5rem;
   color: white;
   box-shadow: 2px 2px 12px wheat;
 }
-
 .content-thankyou img {
-  width: 100px;
-  margin-top: -14%;
+  width: 4rem;
+  max-width: 20rem;
   border-radius: 50%;
-  box-shadow: 2px 2px 8px wheat;
 }
-
 .content-thankyou p {
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
-
-.btn-thankyou-goHome {
-  text-decoration: none;
-  background-color: rgb(245, 235, 217);
-  border-radius: 20%;
-  font-size: 20px;
-  border: 2px solid white;
-  color: #333;
-  padding: 8px;
-}
-
-.btn-thankyou-goHome:hover {
-  background-color: white;
-  color: rgb(2, 2, 150);
-  box-shadow: 2px 2px 8px wheat;
+.content-thankyou .back-to-home {
+  margin-right: 2rem;
 }
 
 /***********************  Footer  ***********************/
@@ -413,6 +400,7 @@ footer {
 .footer-menu {
   display: flex;
   justify-content: center;
+  align-items: center;
   color: antiquewhite;
   gap: 1.8rem;
   font-size: 1.25rem;

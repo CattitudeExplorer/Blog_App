@@ -98,6 +98,19 @@ app.post("/posts/:id/edit", async (req, res) => {
     }
 });
 
+// Add the new user
+app.post("/posts/contact", async (req, res) => {
+    try {
+        const response = await axios.post(`${API_URL}/posts/contact`, req.body);
+        console.log(response.data);
+        console.log("Add new user contact: ", req.body);
+        res.render("thankyou.ejs", { contactInfo: req.body });
+       
+    } catch (error) {
+        res.status(500).json({ message: "Error adding the new user!"});
+    }
+});
+
 // Delete a post
 app.get("/posts/:id/delete", async (req, res) => {
     try {
